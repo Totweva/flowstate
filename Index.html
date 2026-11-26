@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>Cinematic Particle Flow</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <canvas id="particle-canvas"></canvas>
+  <canvas id="fog-canvas"></canvas>
+
+  <div class="vignette"></div>
+
+  <div class="title-container" id="title-container">
+    <h1 class="main-title">
+      <span class="title-word" style="--i:0">FLOW</span>
+      <span class="title-word" style="--i:1">STATE</span>
+    </h1>
+    <p class="subtitle" id="subtitle">A cinematic particle experience</p>
+  </div>
+
+  <div class="ui-panel" id="ui-panel">
+    <div class="panel-header">
+      <span class="panel-title">CONTROLS</span>
+      <button class="panel-toggle" id="panel-toggle" aria-label="Toggle controls">—</button>
+    </div>
+
+    <div class="panel-content" id="panel-content">
+      <div class="control-row">
+        <span class="control-label">Count</span>
+        <input type="range" id="count" min="200" max="3000" value="1200" step="50">
+        <span class="control-value" id="count-value">1200</span>
+      </div>
+
+      <div class="control-row">
+        <span class="control-label">Speed</span>
+        <input type="range" id="speed" min="0.0" max="2.5" value="1.0" step="0.1">
+        <span class="control-value" id="speed-value">1.0</span>
+      </div>
+
+      <div class="control-row">
+        <span class="control-label">Gravity</span>
+        <input type="range" id="gravity" min="-1.0" max="1.0" value="0.0" step="0.05">
+        <span class="control-value" id="gravity-value">0.0</span>
+      </div>
+
+      <div class="control-row">
+        <span class="control-label">Fog</span>
+        <input type="range" id="fog" min="0.0" max="1.5" value="0.7" step="0.05">
+        <span class="control-value" id="fog-value">0.7</span>
+      </div>
+
+      <div class="control-row mode-row">
+        <button id="mode-attract" class="mode-btn active" aria-pressed="true">ATT</button>
+        <button id="mode-repel" class="mode-btn" aria-pressed="false">REP</button>
+        <div class="color-options">
+          <button class="color-swatch active" data-color="#7aa2f7" style="background:#7aa2f7;" aria-label="Blue"></button>
+          <button class="color-swatch" data-color="#bb9af7" style="background:#bb9af7;" aria-label="Purple"></button>
+          <button class="color-swatch" data-color="#9ece6a" style="background:#9ece6a;" aria-label="Green"></button>
+          <button class="color-swatch" data-color="#f7768e" style="background:#f7768e;" aria-label="Red"></button>
+          <button class="color-swatch" data-color="#ff9e64" style="background:#ff9e64;" aria-label="Orange"></button>
+        </div>
+      </div>
+
+      <div class="control-row shape-row">
+        <span class="control-label">Shape</span>
+        <button class="shape-btn active" data-shape="free" aria-pressed="true">FREE</button>
+        <button class="shape-btn" data-shape="sphere" aria-pressed="false">SPHERE</button>
+        <button class="shape-btn" data-shape="cube" aria-pressed="false">CUBE</button>
+        <button class="shape-btn" data-shape="ring" aria-pressed="false">RING</button>
+        <button class="shape-btn" data-shape="helix" aria-pressed="false">HELIX</button>
+      </div>
+
+      <div class="action-row">
+        <button id="pause-play" class="action-btn" aria-label="Pause simulation">⏸</button>
+        <button id="reset" class="action-btn" aria-label="Reset simulation">⟲</button>
+        <button id="fullscreen" class="action-btn" aria-label="Toggle fullscreen">⛶</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
